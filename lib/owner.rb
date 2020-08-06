@@ -40,4 +40,24 @@ class Owner
     new_dog = Dog.new(dog, self)
     dogs
   end
+  def list_pets
+    return "I have #{self.dogs.count} dog(s), and #{self.cats.count} cat(s)."
+  end 
+  def walk_dogs
+     self.dogs.each do |dog|
+      dog.mood = 'happy'
+     end
+  end 
+  def feed_cats
+    self.cats.each do |cat|
+      cat.mood = 'happy'
+     end
+  end
+  def sell_pets
+    pets_for_sale = self.dogs.concat(self.cats)
+    pets_for_sale.each do |animal|
+      animal.owner = nil
+      animal.mood = 'nervous'
+    end
+  end
 end
